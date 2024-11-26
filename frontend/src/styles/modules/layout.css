@@ -1,0 +1,117 @@
+.body {
+  margin: 0;
+  background-color: var(--primary-background);
+  color: var(--primary-text);
+  font-family: var(--primary-font);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: calc(var(--size) * 2) calc(var(--size) * 7.5);
+  background-color: var(--transparent-30);
+
+  & > ul {
+    display: flex;
+    gap: calc(var(--size) * 8);
+  }
+}
+
+.main {
+  padding: calc(var(--size) * 2.5);
+}
+.container {
+  max-width: calc(var(--max-width) * 0.375);
+  padding-inline: calc(var(--size) * 4);
+  margin-inline: auto;
+}
+
+.container--auth {
+  display: flex;
+  gap: calc(var(--size) * 5);
+  flex: 1;
+  background-color: var(--primary-100);
+  color: var(--light-primary-text);
+  padding: calc(var(--size) * 2.5);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow--md);
+
+  & h1,
+  p {
+    margin: 0;
+  }
+  & a {
+    color: var(--primary-500);
+  }
+}
+
+.subcontainer--auth {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--size) * 6.25) calc(var(--size) * 5);
+  gap: calc(var(--size) * 5);
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+}
+
+.subcontainer__img--auth {
+  display: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form--auth {
+  gap: calc(var(--size) * 5);
+}
+
+.flexbox {
+  display: flex;
+}
+
+.flexbox--center {
+  place-items: center;
+  place-content: center;
+}
+
+.flexbox--centered-sides {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.g-layout {
+  display: grid;
+}
+
+.g-layout--auto-fit-columns {
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 64), 1fr));
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    padding: calc(var(--size) * 2.5) calc(var(--size) * 40);
+  }
+
+  .container {
+    max-width: var(--max-width);
+  }
+  .container--auth {
+    padding: calc(var(--size) * 8.75);
+  }
+
+  .subcontainer--auth {
+    padding: calc(var(--size) * 7.5);
+  }
+  .subcontainer__img--auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: var(--white);
+    gap: calc(var(--size) * 5);
+  }
+}

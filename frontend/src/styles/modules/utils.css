@@ -1,0 +1,35 @@
+.d-flex {
+  display: flex;
+}
+
+.f-col {
+  flex-direction: column;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: calc(var(--size) * 2.5);
+}
+
+.gap-2 {
+  gap: calc(var(--size) * 5);
+}
+
+.c-secondary {
+  color: var(--secondary-text);
+}

@@ -1,0 +1,85 @@
+:root {
+  --theme: dark;
+  --size: 0.25rem;
+  --max-width: 64rem;
+  --transition-duration: 0.2s;
+  --dark-shadow: rgba(241, 245, 248, 0.5);
+  --light-shadow: rgba(1, 5, 8, 0.5);
+  --shadow: rgba(241, 245, 248, 0.5);
+  --border-radius: calc(var(--size) * 1);
+  --transition-circular: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  --transparent-30: color-mix(
+    in srgb,
+    var(--black),
+    transparent calc((100% - 30%))
+  );
+  --transparent-50: color-mix(
+    in srgb,
+    var(--black),
+    transparent calc((100% - 50%))
+  );
+
+  color-scheme: var(--theme);
+
+  /* -- Colors -- */
+
+  /* Base */
+  --primary: #2a2bd8;
+  --secondary: #788bff;
+  --success: #23b58b;
+  --warning: #e8b523;
+  --danger: #e23b58;
+  --white: #ffffff;
+  --black: #010508;
+
+  /* Primary */
+  --primary-50: #ecf2ff;
+  --primary-100: #dde8ff;
+  --primary-200: #c2d4ff;
+  --primary-300: #9cb6ff;
+  --primary-400: #758dff;
+  --primary-500: #5465ff;
+  --primary-600: #363af5;
+  --primary-700: var(--primary);
+  --primary-800: #2528ae;
+  --primary-900: #262b89;
+  --primary-950: #161750;
+
+  /* Neutral */
+  --neutral-50: #dadee1;
+  --neutral-100: #c4c8ca;
+  --neutral-200: #afb2b4;
+  --neutral-300: #9a9c9e;
+  --neutral-400: #858789;
+  --neutral-500: #77797a;
+  --neutral-600: #636465;
+  --neutral-700: #4f5152;
+  --neutral-800: #3c3e3f;
+  --neutral-900: #2a2c2d;
+  --neutral-950: #191b1c;
+
+  /* -- Colors -- */
+
+  /* -- Typography -- */
+
+  --primary-font: "Montserrat";
+  --secondary-font: "Cabin";
+  --dark-primary-text: var(--white);
+  --light-primary-text: var(--black);
+  --primary-background: var(--primary-950);
+  --primary-text: var(--white);
+  --secondary-background: var(--neutral-950);
+  --secondary-text: var(--neutral-500);
+
+  /* -- Typography -- */
+
+  /* -- Effects -- */
+
+  --shadow--xl: 0rem 0.625rem 1.25rem rgba(241, 245, 248, 0.5);
+  --shadow--lg: 0rem 0.5rem 1rem rgba(241, 245, 248, 0.5);
+  --shadow--md: 0rem 0.375rem 0.75rem rgba(241, 245, 248, 0.5);
+  --shadow--sm: 0rem 0.25rem 0.5rem rgba(241, 245, 248, 0.5);
+  --shadow--xs: 0rem 0.125rem 0.25rem rgba(241, 245, 248, 0.5);
+
+  /* -- Effects -- */
+}
