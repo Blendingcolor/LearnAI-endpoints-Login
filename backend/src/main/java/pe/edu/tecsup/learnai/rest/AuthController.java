@@ -9,7 +9,7 @@ import pe.edu.tecsup.learnai.entity.User;
 import pe.edu.tecsup.learnai.exception.DuplicatedUserInfoException;
 import pe.edu.tecsup.learnai.exception.InvalidTokenException;
 import pe.edu.tecsup.learnai.rest.request.*;
-import pe.edu.tecsup.learnai.services.EmailService;
+import pe.edu.tecsup.learnai.services.email.EmailService;
 import pe.edu.tecsup.learnai.services.UserService;
 
 import java.util.Optional;

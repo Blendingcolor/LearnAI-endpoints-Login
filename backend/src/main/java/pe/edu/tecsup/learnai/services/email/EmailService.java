@@ -1,4 +1,4 @@
-package pe.edu.tecsup.learnai.services;
+package pe.edu.tecsup.learnai.services.email;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
