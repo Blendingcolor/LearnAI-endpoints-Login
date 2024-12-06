@@ -58,12 +58,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByVerificationToken(String token) {return userRepository.findByVerificationToken(token);}
+    public Optional<User> findByVerificationCode(Integer code) {return userRepository.findByVerificationCode(code);}
 
     @Override
-    public void resetPassword(String token, String newPassword) {
-        User user = userRepository.findByVerificationToken(token)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid token"));
+    public void resetPassword(Integer code, String newPassword) {
+        User user = userRepository.findByVerificationCode(code)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid code"));
 
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);

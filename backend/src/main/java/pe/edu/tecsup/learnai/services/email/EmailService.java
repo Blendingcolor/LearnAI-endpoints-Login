@@ -12,6 +12,7 @@ import pe.edu.tecsup.learnai.repository.UserRepository;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.SecureRandom;
 import java.util.UUID;
 
 @Service // Marca esta clase como un servicio en el contexto de Spring
@@ -28,16 +29,15 @@ public class EmailService {
 
     public void sendWelcomeEmail(String to, String username) {
         String subject = "Welcome to LearnAI!";
-        // Genera el token de verificación
-        String verificationToken = UUID.randomUUID().toString();
-        String verificationLink = "http://localhost:8080/auth/verify?token=" + verificationToken;
-        saveVerificationToken(to, verificationToken);
+        User user = userRepository.findByEmail(to)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + to));
+        Integer code = user.getVerificationCode();
 
         try {
             // Lee la plantilla HTML personalizada
             String content = readTemplate("templates/TemplateEmail.html");
             content = content.replace("{{username}}", username);
-            content = content.replace("{{verificationLink}}", verificationLink);
+            content = content.replace("{{verificationCode}}", code.toString());
 
             // Crear un correo MIME y configurar su contenido
             MimeMessage message = mailSender.createMimeMessage();
@@ -53,13 +53,6 @@ public class EmailService {
         }
     }
 
-    private void saveVerificationToken(String email, String token) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + email));
-        user.setVerificationToken(token);
-        userRepository.save(user);
-    }
-
     private String readTemplate(String templatePath) throws IOException {
         Path path = new ClassPathResource(templatePath).getFile().toPath();
         return Files.readString(path);
@@ -68,22 +61,21 @@ public class EmailService {
     public void sendPasswordResetLink(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("Email not registered."));
-        String verificationToken = user.getVerificationToken();
+        Integer verificationCode = user.getVerificationCode();
         if (!user.isVerified()) {
             throw new IllegalArgumentException("The email address has not been verified. Please verify your email before requesting a password reset.");
         }
 
-        if (verificationToken == null || verificationToken.isEmpty()) {
-            verificationToken = UUID.randomUUID().toString();
-            user.setVerificationToken(verificationToken);
+        if (verificationCode == null) {
+            verificationCode = 12345678;
+            user.setVerificationCode(verificationCode);
             userRepository.save(user);
         }
-        String resetLink = "http://localhost:8080/auth/recover-password?token=" + verificationToken;
         String subject = "Password Reset Request - LearnAI";
         try {
             String content = readTemplate("templates/TemplateEmailResetPassword.html");
             content = content.replace("{{username}}", user.getUsername());
-            content = content.replace("{{resetLink}}", resetLink);
+            content = content.replace("{{resetCode}}", verificationCode.toString());
 
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);

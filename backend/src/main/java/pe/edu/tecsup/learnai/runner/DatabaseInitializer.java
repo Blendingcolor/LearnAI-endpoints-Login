@@ -27,8 +27,8 @@ public class DatabaseInitializer implements CommandLineRunner {
     }
 
     private static final List<User> USERS = Arrays.asList(
-        new User("diego", "diego.becerra@example.com", "contra123", "token12345", true),
-        new User("abel", "abel.santisteban@example.com", "contra456", "token67890", true),
-        new User("jairo", "quispe.coa@example.com", "contra789", "token012345", true)
+        new User("diego", "diego.becerra@tecsup.edu.pe", "contra123", 99999999, true),
+        new User("abel", "abel.santisteban@tecsup.edu.pe", "contra456", 99999998, true),
+        new User("jairo", "quispe.coa@tecsup.edu.pe", "contra789", 99999997, true)
     );
 }

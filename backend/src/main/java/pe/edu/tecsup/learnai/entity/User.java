@@ -20,16 +20,16 @@ public class User {
     private String email;
     @Column(name = "password", length = 255)
     private String password;
-    @Column(name = "verification_token")
-    private String verificationToken;
+    @Column(name = "verification_code", length = 8, unique = true)
+    private Integer verificationCode;
     @Column(name = "is_verified")
     private boolean isVerified;
 
-    public User(String username, String email, String password, String verificationToken, boolean isVerified) {
+    public User(String username, String email, String password, Integer verificationCode, boolean isVerified) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.verificationToken = verificationToken;
+        this.verificationCode = verificationCode;
         this.isVerified = isVerified;
     }
 }

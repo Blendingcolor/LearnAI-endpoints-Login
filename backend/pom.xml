@@ -86,6 +86,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>my-repo</id>
+            <url>https://github.com/Blendingcolor/LearnAI-endpoints-Login.git</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>

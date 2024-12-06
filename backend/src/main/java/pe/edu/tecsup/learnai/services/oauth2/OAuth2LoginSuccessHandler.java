@@ -57,7 +57,7 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
                 newUser.setUsername(name);
                 newUser.setEmail(email);
                 newUser.setPassword(generateRandomPassword());  // Genera una contraseña aleatoria segura
-                newUser.setVerificationToken(null);  // Puede ser utilizado para una verificación adicional
+                newUser.setVerificationCode(null);  // Puede ser utilizado para una verificación adicional
                 newUser.setVerified(isVerified);
                 userService.saveUser(newUser);
             }

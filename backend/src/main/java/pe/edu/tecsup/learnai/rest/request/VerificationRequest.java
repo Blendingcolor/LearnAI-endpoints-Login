@@ -6,12 +6,12 @@ import lombok.Setter;
 @Setter
 @Getter
 public class VerificationRequest {
-    private String token;
+    private Integer code;
 
     public VerificationRequest() {}
 
-    public VerificationRequest(String token) {
-        this.token = token;
+    public VerificationRequest(Integer code) {
+        this.code = code;
     }
 
 }

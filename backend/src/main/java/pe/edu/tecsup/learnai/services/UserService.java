@@ -22,7 +22,7 @@ public interface UserService {
 
     Optional<User> findByEmail(String email);
 
-    Optional<User> findByVerificationToken(String token);
+    Optional<User> findByVerificationCode(Integer code);
 
-    void resetPassword(String token, String newPassword);
+    void resetPassword(Integer code, String newPassword);
 }
